@@ -5,7 +5,6 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
 - It can be used to identify which year a specific question is from 
 - Can help make topicals/ chapterwise papers to practice
 - Works **both** on mobile and desktop
-- Use words instead of phrases, like if question says `Explain why beta-farnesene exhibits geometric isomerism and has only two geometric isomers`, you should search `beta-farnesene`, this is because words like "why" etc have been omitted for optimisation
 
 ![image](static/home.png)
 - Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
