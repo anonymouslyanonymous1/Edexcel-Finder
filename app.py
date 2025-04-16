@@ -31,7 +31,6 @@ def results():
         if subject == "Maths":
             query = parser.parse(f'subject:"{subject}" AND unit:"{module}" AND module:"Unit {unit}" AND content:"{search}"') # Turning into a query object
             results = searcher.search(query, limit=40)
-            print(f"len(results) found")
             for result in results:
                 pdf_path = f'static/Papers/{result["subject"]}/{result["unit"]}/{result["module"]}/{result["year"]}.txt'
                 QP = open(pdf_path, "r", encoding="utf-8")
@@ -56,7 +55,6 @@ def results():
         else:
             query = parser.parse(f'subject:"{subject}" AND unit:"Unit {unit}" AND module:"{module}" AND content:"{search}"') # Turning into a query object
             results = searcher.search(query, limit=40)
-            print(f"len(results) found")
             for result in results:
                 pdf_path = f'static/Papers/{result["subject"]}/{result["unit"]}/{result["year"]}.txt'
                 QP = open(pdf_path, "r", encoding="utf-8")
