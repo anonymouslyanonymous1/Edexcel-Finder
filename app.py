@@ -4,7 +4,7 @@ import re
 import os
 import fitz
 from whoosh import index as indexx
-from whoosh.qparser import MultifieldParser
+from whoosh.qparser import MultifieldParser, OrGroup
 import traceback
 
 app = Flask(__name__)
