@@ -5,6 +5,7 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
 - It can be used to identify which year a specific question is from 
 - Can help make topicals/ chapterwise papers to practice
 - Works **both** on mobile and desktop
+- For __exact__ matches use `"[phrase]"`
 
 ![image](static/home.png)
 - Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
