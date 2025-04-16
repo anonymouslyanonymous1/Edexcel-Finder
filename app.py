@@ -29,7 +29,7 @@ def results():
     with ix.searcher() as searcher:
         parser = MultifieldParser(["subject", "unit", "module", "content"], schema=ix.schema)
         if subject == "Maths":
-            query = parser.parse(f'subject:"{subject}" AND unit:"{module}" AND module:"Unit {unit}" AND content:"{search}"') # Turning into a query object
+            query = parser.parse(f'subject:"{subject}" AND unit:"{module}" AND module:"Unit {unit}" AND content:{search}') # Turning into a query object
             results = searcher.search(query, limit=40)
             for result in results:
                 pdf_path = f'static/Papers/{result["subject"]}/{result["unit"]}/{result["module"]}/{result["year"]}.txt'
@@ -53,7 +53,7 @@ def results():
                 pix.save(f'static/images/{result["year"]} pg{page}.png')
                 resultss.append([result["year"], page, f'static/images/{result["year"]} pg{page}.png', re.sub(".txt",".pdf",pdf_path), re.sub(".txt", " MS.pdf", pdf_path)])
         else:
-            query = parser.parse(f'subject:"{subject}" AND unit:"Unit {unit}" AND module:"{module}" AND content:"{search}"') # Turning into a query object
+            query = parser.parse(f'subject:"{subject}" AND unit:"Unit {unit}" AND module:"{module}" AND content:{search}') # Turning into a query object
             results = searcher.search(query, limit=40)
             for result in results:
                 pdf_path = f'static/Papers/{result["subject"]}/{result["unit"]}/{result["year"]}.txt'
