@@ -23,6 +23,14 @@
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MVBRFNJE3"></script>
         <script>
+
+            function disableSubmitButton() {
+        
+                document.getElementById("MMForm").querySelector("button[type='submit']").disabled = true;
+        
+            }
+        </script>
+        <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
@@ -64,7 +72,7 @@
                 </svg>                        
             </div>
         </a>   
-        <form action="/results" method="get">
+        <form action="/results" method="get" onsubmit="disableSubmitButton()" id="MMForm">
             <div class="lander">
                 <div class="choices">
                     <div id="subjectc" class="Further Maths">
