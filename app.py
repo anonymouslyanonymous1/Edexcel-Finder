@@ -4,7 +4,7 @@ import re
 import os
 import fitz
 from whoosh import index as indexx
-from whoosh.qparser import MultifieldParser, OrGroup
+from whoosh.qparser import MultifieldParser
 import traceback
 
 app = Flask(__name__)
@@ -27,10 +27,11 @@ def results():
     resultss = []
     ix = indexx.open_dir("static/Index")
     with ix.searcher() as searcher:
-        parser = MultifieldParser(["subject", "unit", "module", "content"], schema=ix.schema, group=OrGroup.factory(0.8))
+        parser = MultifieldParser(["subject", "unit", "module", "content"], schema=ix.schema)
         if subject == "Maths":
-            query = parser.parse(f'subject:"{subject}" AND unit:"{module}" AND module:"Unit {unit}" AND content:{search}') # Turning into a query object
+            query = parser.parse(f'subject:"{subject}" AND unit:"{module}" AND module:"Unit {unit}" AND content:"{search}"') # Turning into a query object
             results = searcher.search(query, limit=40)
+            print(f"len(results) found")
             for result in results:
                 pdf_path = f'static/Papers/{result["subject"]}/{result["unit"]}/{result["module"]}/{result["year"]}.txt'
                 QP = open(pdf_path, "r", encoding="utf-8")
@@ -53,8 +54,9 @@ def results():
                 pix.save(f'static/images/{result["year"]} pg{page}.png')
                 resultss.append([result["year"], page, f'static/images/{result["year"]} pg{page}.png', re.sub(".txt",".pdf",pdf_path), re.sub(".txt", " MS.pdf", pdf_path)])
         else:
-            query = parser.parse(f'subject:"{subject}" AND unit:"Unit {unit}" AND module:"{module}" AND content:{search}') # Turning into a query object
+            query = parser.parse(f'subject:"{subject}" AND unit:"Unit {unit}" AND module:"{module}" AND content:"{search}"') # Turning into a query object
             results = searcher.search(query, limit=40)
+            print(f"len(results) found")
             for result in results:
                 pdf_path = f'static/Papers/{result["subject"]}/{result["unit"]}/{result["year"]}.txt'
                 QP = open(pdf_path, "r", encoding="utf-8")
