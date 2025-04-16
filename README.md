@@ -23,3 +23,5 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
 ---
 - The fun in doing such projects is learning about different things in order to optimise your code, I loved learning about Whoosh and how it worked behind the scenes
 - Indexing and converting `pdfs` to `txts` was also real fun
+---
+⚠️ DISCLAIMER: It's not a finished project yet, there's potential for so much more, after my AS Exams I'll In Sha Allah look into them
