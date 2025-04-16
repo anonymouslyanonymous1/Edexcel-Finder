@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/befdcf02-01c1-43cc-8c4a-fe1580bb6664)![image](static/bg.png)
+![image](static/bg.png)
 Inspired by [CAIE Finder](https://caiefinder.com/)
 # [Edexcel Finder](https://edexcel-finder.onrender.com/)
 > Use Case
