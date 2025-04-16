@@ -1,14 +1,10 @@
 *.py linguist-language=Python
-*.html linguist-language=HTML
-*.css linguist-language=CSS
-
-*.py linguist-weight=80
-*.html linguist-weight=10
-*.css linguist-weight=10
 
 *.ps1 linguist-vendored
 *.bat linguist-vendored
 *.cmd linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
 *.md linguist-vendored
 *.json linguist-vendored
 *.yml linguist-vendored
