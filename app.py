@@ -27,7 +27,7 @@ def results():
     resultss = []
     ix = indexx.open_dir("static/Index")
     with ix.searcher() as searcher:
-        parser = MultifieldParser(["subject", "unit", "module", "content"], schema=ix.schema)
+        parser = MultifieldParser(["subject", "unit", "module", "content"], schema=ix.schema, group=OrGroup.factory(0.8))
         if subject == "Maths":
             query = parser.parse(f'subject:"{subject}" AND unit:"{module}" AND module:"Unit {unit}" AND content:{search}') # Turning into a query object
             results = searcher.search(query, limit=40)
