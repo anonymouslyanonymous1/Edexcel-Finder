@@ -76,8 +76,21 @@ a{
     text-decoration: none;
 }
 .hits{
-    padding-top: 20px;
     text-align: center;
+}
+.combiner{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 10px;
+}
+svg{
+    padding: 0px;
+    fill: #0b2a41;
+    transition: fill 200ms ease-in-out;
+}
+svg:hover{
+    fill: #00c3ff;
 }
 @media only screen and (max-width: 700px){
     .images{
@@ -87,6 +100,5 @@ a{
     .hits{
         width: 100%;
         text-align: left;
-        padding: 10px;
     }
 }
