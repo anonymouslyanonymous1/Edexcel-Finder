@@ -1,0 +1,16 @@
+*.py linguist-language=Python
+
+*.ps1 linguist-vendored
+*.bat linguist-vendored
+*.cmd linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
+*.md linguist-vendored
+*.json linguist-vendored
+*.yml linguist-vendored
+*.lock linguist-vendored
+migrations/* linguist-vendored
+venv/* linguist-vendored
+node_modules/* linguist-vendored
+dist/* linguist-vendored
+build/* linguist-vendored
