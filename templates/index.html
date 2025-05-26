@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../static/icon.png">
+        <link rel="stylesheet" href="../static/styles.css">
+        <title>Edexcel Finder</title>
+        <meta property="og:url" content="https://edexcel-finder.onrender.com/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Edexcel Finder">
+        <meta property="og:description" content="A sleek way to find any question from a vast library of past papers, to perhaps make topicals or just find an answer to!">
+        <meta property="og:image" content="http://edexcel-finder.onrender.com/static/bg.png">
+        <meta property="theme-color" content="#02f0fe">
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="edexcel-finder.onrender.com">
+        <meta property="twitter:url" content="https://edexcel-finder.onrender.com/">
+        <meta name="twitter:title" content="Edexcel Finder">
+        <meta name="twitter:description" content="A sleek way to find any question from a vast library of past papers, to perhaps make topicals or just find an answer to!">
+        <meta name="twitter:image" content="http://edexcel-finder.onrender.com/static/bg.png">
+        <meta name="google-site-verification" content="QdeOvCR3ZRyaO2GS1EIwatlxcKXUhxnyKZ-sAC2oiak" />
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MVBRFNJE3"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-7MVBRFNJE3');
+        </script>
+        <script>
+            function checkRadio() {
+                const radioButtons = document.getElementsByName("subject");
+                let isChecked = false;
+        
+                for (const radioButton of radioButtons) {
+                    if (radioButton.checked) {
+                        isChecked = true;
+                        break;
+                    }
+                }
+        
+                if (!isChecked) {
+                    alert("Select a subject");
+                    return false;
+                }
+        
+                return true;
+            }
+            function checkChoice() {
+                const choiceButtons = document.getElementsByName("choice");
+                let isChecked = false;
+        
+                for (const choiceButton of choiceButtons) {
+                    if (choiceButton.checked) {
+                        isChecked = true;
+                        break;
+                    }
+                }
+        
+                if (!isChecked) {
+                    alert("Choose a specification");
+                    return false;
+                }
+        
+                return true;
+            }
+            function closeCard() {
+                document.getElementById('starCard').style.display = 'none';
+                localStorage.setItem('starCardClosed', 'true');
+                console.log("Stored");
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                if (localStorage.getItem('starCardClosed') === 'true') {
+                    document.getElementById('starCard').style.display = 'none';
+                    // console.log('Card hidden - user previously closed it');
+                } else {
+                    document.getElementById('starCard').style.display = 'block';
+                    // console.log('Card shown - first time or not closed before');
+                }
+            });
+            function disableSubmitButton() {
+                document.getElementById("EFForm").querySelector("button[type='submit']").disabled = true;
+            }
+        </script>        
+    </head>
+    <body>
+        <a href="https://github.com/anonymouslyanonymous1/Edexcel-Finder" class="github-corner">
+            <svg width="80" height="80" viewBox="0 0 250 250" style="position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+                <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+                <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+                <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+            </svg>
+        </a>
+        <form action="/results" method="get" id="EFForm" onsubmit="disableSubmitButton()">
+            <div class="lander">
+                <div class="choices">
+                    <div id="subjectc" class="Further Maths">
+                        <label class="wrapper">
+                            <input type="radio" required id = "subject" name="subject" value="WFM0">
+                            <p>Further Maths</p>
+                        </label>
+                    </div>
+                    <div id="subjectc" class="Pure Maths">
+                        <label class="wrapper">
+                            <input type="radio" required id = "subject" name="subject" value="WMA1">
+                            <p>Pure Maths</p>
+                        </label>
+                    </div>
+                    <div id="subjectc" class="Mechanics">
+                        <label class="wrapper">
+                            <input type="radio" required id = "subject" name="subject" value="WME0">
+                            <p>Mechanics</p>
+                        </label>
+                    </div>
+                    <div id="subjectc" class="Statistics">
+                        <label class="wrapper">
+                            <input type="radio" required id = "subject" name="subject" value="WST0">
+                            <p>Statistics</p>
+                        </label>
+                    </div>
+                    <div id="subjectc" class="Decision">
+                        <label class="wrapper">
+                            <input type="radio" required id = "subject" name="subject" value="WDM">
+                            <p>Decision</p>
+                        </label>
+                    </div>
+                    <div id="subjectc" class="Chemistry">
+                        <label class="wrapper">
+                            <input type="radio" required id = "subject"  name="subject" value="Chemistry">
+                            <p>Chemistry</p>
+                        </label>
+                    </div>
+                    <div id="subjectc" class="Physics">
+                        <label class="wrapper">
+                            <input type="radio" required id = "subject"  name="subject" value="Physics">
+                            <p>Physics</p>
+                        </label>
+                    </div>
+                    <div id="subjectc" class="Biology">
+                        <label class="wrapper">
+                            <input type="radio" required id = "subject"  name="subject" value="Biology">
+                            <p>Biology</p>
+                        </label>
+                    </div>
+                    <div class="Unit">
+                        <select name="unit" id="unitI" required>
+                            <option value="" disabled selected>Choose an Unit</option>
+                            <option value="Unit 1">Unit 1 (including FP1, P1, S1, M1)</option>
+                            <option value="Unit 2">Unit 2 (includes FP2, P2, S2, M2)</option>
+                            <option value="Unit 3">Unit 3 (includes FP3, P3, S3, M3)</option>
+                            <option value="Unit 4">Unit 4 (includes P4)</option>
+                            <option value="Unit 5">Unit 5 (No Maths Unit)</option>
+                            <option value="Unit 6">Unit 6 (No Maths Unit)</option>
+                            <option value="Unit 7">Unit 7 (No Maths Unit, reserved for Old Specification Sciences)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="engine">
+                    <div class="search">
+                        <input type="search" id="search" name="search" required placeholder="Search Here">
+                    </div>
+                    <div class="button">
+                        <button type="submit" onclick="checkRadio(); checkChoice()"><span style="font-size: 15pt;">Search</span></button> 
+                    </div>
+                </div>
+                <div class="spec">
+                    <div id="choicec" class="choice">
+                        <label class="wrapper">
+                            <input type="radio" required id = "choice" name="choice" value="new">
+                            <p>New Specification</p>
+                        </label>
+                    </div>
+                    <div id="choicec" class="choice">
+                        <label class="wrapper">
+                            <input type="radio" required id = "choice" name="choice" value="old">
+                            <p>Old Specification</p>
+                        </label>
+                    </div>
+                    <div id="choicec" class="choice">
+                        <label class="wrapper">
+                            <input type="radio" required id = "choice" name="choice" value="both">
+                            <p>Both</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="card-container" id="starCard">
+            <div class="card">
+                <div class="card-header">
+                    <div class="ffl-icon">
+                        <svg class = "ffl" xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#e3e3e3">
+                            <path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z"/>
+                        </svg>
+                    </div>
+                    <h2>Hey there!</h2>
+                </div>
+                <p>The purpose of this project and how to use it is posted on my Github profile (click top-right icon). <br> While you are reading consider dropping a follow and a star 😉. Rest assured, all my projects will be open sourced and ad-free forever In Sha Allah, so don't worry about facing inconvenience while studying.</p>
+                <div class="button-container">
+                    <button class="close-button" onclick="closeCard()">Close</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

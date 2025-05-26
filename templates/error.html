@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 500</title>
+    <link rel="icon" href="../static/iconerror.png">
+    <style>
+        @font-face {
+            font-family: Coolvetica;
+            src: url('coolvetica.otf') format('opentype');
+        }
+        *{
+            margin: 0;
+            font-family: Coolvetica;
+            color: white;
+            box-sizing: border-box;
+        }
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .error{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 6px;
+            letter-spacing: 1px;
+            text-align: center;
+            width: 100%;
+        }
+        pre, code {
+            white-space: pre-wrap;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            text-align: center;
+            max-width: 100%;
+            padding: 1em;
+            font-size: 0.9em;
+        }
+        body{
+            background-image: linear-gradient(to left, #640B0B, #AA4444);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class = "error">
+            <h3>There has been an error. Could you kindly screenshot this page and contact me via the Github on homepage.</h3>
+            <pre><code>{{error | e}}</code></pre>
+        </div>
+    </div>
+</body>
+</html>

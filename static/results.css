@@ -1,0 +1,126 @@
+@font-face {
+    font-family: Coolvetica;
+    src: url('coolvetica.otf') format('opentype');
+}
+*{
+    margin: 0;
+    font-family: Coolvetica;
+    color: #0b2a41;
+}
+body{
+    background-color: rgb(231, 245, 255);
+}
+.images{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 100%;
+}
+.wrapper{
+    display: block;
+}
+.wrapper{
+    width: inherit;
+    height: 80vh;
+    position: relative;
+    background-color: aqua;
+}
+.info{
+    position: absolute;
+    text-align: right;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient( rgba(225, 225, 225, 0.308), rgba(126, 231, 252, 0.568));
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    box-sizing: border-box;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+img{
+    height: 80vh;
+}
+.wrapper:hover .info{
+    opacity: 1;
+}
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+#button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    background-color: #0b2a41;
+    transition: border 100ms ease-in-out, width 100ms ease-in-out;
+}
+#button:hover{
+    border: 2px solid #00c3ff;
+    width: 120px;
+}
+a{
+    text-decoration: none;
+}
+.combiner a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hits{
+    text-align: center;
+}
+.combiner{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+svg{
+    padding: 0px;
+    fill: #0b2a41;
+    transition: fill 200ms ease-in-out;
+}
+svg:hover{
+    fill: #00c3ff;
+}
+.enlarge{
+    height: fit-content;
+    width: fit-content;
+}
+@media only screen and (max-width: 700px){
+    .images{
+        flex-direction: column;
+        padding: 4px;
+    }
+    .hits{
+        text-align: center;
+    }
+    .combiner{
+        align-items: center;
+        gap: 0px;
+        text-align: center;
+        font-size: 10pt;
+    }
+    .combiner a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
