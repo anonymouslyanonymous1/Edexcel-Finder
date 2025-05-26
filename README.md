@@ -68,6 +68,6 @@ Hovering upon the image gives more details
     - To ensure there is no disturbance to user experience
 - Added an **enlarge** link alongside the other information in `/results`
     - This is to ensure image can be read easily
-- Images were being deleted for one if two or more users were using site simulataneously, so added differentiated every user with an **unique id**
+- Images were being deleted for one if two or more users were using site simulataneously, so differentiated every user with an **unique Sessions id**
     - Added a scheduler which would clear each user's unique folder after 400s of returning results
     - So, user has about ~6 minutes to enlarge results
