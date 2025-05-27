@@ -9,7 +9,10 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
     - You can search for terms that are often alongside questions of a certain topic
     - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
 ## Demonstration
-
+<div style="display: flex; gap: 10px;">
+  <img src="static/mobile_home.png" style="width: 200px;">
+  <img src="static/mobile_result.png" style="width: 200px;">
+</div>
 Works **both** on mobile 📱 and desktop 🖥️
 ![image](static/home.png)
 Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
@@ -56,7 +59,7 @@ Hovering upon the image gives more details
     - Indexed each unit of each subject separately instead of saving all units and all subjects in one index file
     - This solved the issue of Sample Paper's images coming up more than once unnecessarily
 - Added Biology, Decision
-- Added Old Specification papers for all of them going as far as 2009 for Sciences and 2014 for Mathematics
+- Added Old Specification papers for all of them going as far as **2009** for Sciences and **2014** for Mathematics
     - Unused papers, R papers have also been added alongside for both New/Old Specification if available 
 - Added filters to allow choice of results from a particular version of specification or both
     - Side Note: New/Old alone > Both in terms of speed as lesser number files to search through and produce images for
@@ -69,7 +72,7 @@ Hovering upon the image gives more details
 - Added an **enlarge** link alongside the other information in `/results`
     - This is to ensure image can be read easily
 - Images were being deleted for one if two or more users were using site simulataneously, so differentiated every user with an **unique Sessions id**
-    - Added a scheduler which would clear each user's unique folder after 400s of returning results
+    - Added a scheduler which would clear each user's unique folder after 400 seconds of returning results
     - So, user has about ~6 minutes to enlarge results
 ---
 ### Ideas from users
@@ -79,3 +82,5 @@ Hovering upon the image gives more details
     - This led to the user ID differentiation and schedule deletion instead of immediate deletion upon request coming in
 - Toggle for old and new specification: @mere.illusion and @crysliz [Both Discord]
 - Addition of Biology: @subelemambopakemigataprendalomot [Discord]
+- https://edexcelfinder.onrender.com/SixMark suggested by @999remaining [Discord]
+    - This is a compilation of all the descriptive/mathematical 6 markers that have come up in previous years for the Sciences [January 2010 to January 2024]
