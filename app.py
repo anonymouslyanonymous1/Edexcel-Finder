@@ -11,6 +11,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime, timedelta
 import time
 import uuid
+import json
 
 def ensure_directory(path):
     if not os.path.exists(path):
@@ -178,6 +179,58 @@ def results():
         scheduler.add_job(clear, 'date', run_date=run_time)
         send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
         return render_template("results.html", results = send, hits = hits)
+@app.route("/SixMark", methods=["GET", "POST"])
+def SixMark():
+    global user_id
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4())
+    user_id = session['user_id']
+    # print(f"user ID: {user_id}")
+    return render_template("SixMark.html")
+@app.route("/SixMarkresults", methods=["GET", "POST"])
+def SixMarkresults():
+    send = []
+    subject = request.args.get("subject")
+    unit = request.args.get("unit")
+    choice = request.args.get("choice")
+    folder = []
+    if choice == "both":
+            old = f"Old {subject}"
+            folder.append(["Old Specification", old])
+            new = f"{subject} (2018)"
+            folder.append(["New Specification", new])
+    elif choice == "new":
+        todo = f"{subject} (2018)"
+    else:
+        todo = f"Old {subject}"
+    total = 0
+    old_count = 0
+    new_count = 0
+    if folder:
+        for one in folder:
+            for file in os.listdir(f"static/SixMark/Data/{one[1]}/{unit}"):
+                data = open(f"static/SixMark/Data/{one[1]}/{unit}/{file}", "r", encoding="utf-8")
+                data = json.load(data)
+                for row in data:
+                    send.append([row["Title"], row["Page"], row["Image_Link"], row["QP_Link"], row["MS_Link"]])
+                    total = total + 1
+                    if one[1] == old:
+                        old_count = old_count + 1
+                    else:
+                        new_count = new_count + 1
+        hits = f"{total} [Old: {old_count}, New: {new_count}]"                        
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
+    else:
+        for file in os.listdir(f"static/SixMark/Data/{todo}/{unit}"):
+            data = open(f"static/SixMark/Data/{todo}/{unit}/{file}", "r", encoding="utf-8")
+            data = json.load(data)
+            for row in data:
+                send.append([row["Title"], row["Page"], row["Image_Link"], row["QP_Link"], row["MS_Link"]])
+                total = total + 1
+        hits = total
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
+    return render_template("resultsSixMark.html", results = send, hits = hits)
+
 @app.errorhandler(500)
 def internal_error(error):
     return render_template("error.html", error=str(traceback.format_exc())), 500
