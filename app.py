@@ -96,7 +96,7 @@ def results():
                                 pix.save(f'static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png')
                                 send.append([result["year"], page+1, f'static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"] ])
                             except:
-                                webhook_url = ""
+                                webhook_url = "https://discord.com/api/webhooks/1375968058887245836/WWHxcv4aJzSbU78Aumb_gSo20JLbfgUZ2TvkdztO75TFTCUz7zndmlkaNPqxtrBHZwU3"
 
                                 data = {
                                     "content": f'# Data Omitted \n > {result["year"]} {subject} {module} \n - Question Paper: {result["qp_link"]}#page={result["page"]} \n - Search Term: {target}'
@@ -125,6 +125,7 @@ def results():
         hits = f"{total} [Old: {old_count}, New: {new_count}]"
         run_time = datetime.now() + timedelta(seconds=400)
         scheduler.add_job(clear, 'date', run_date=run_time)
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
         return render_template("results.html", results = send, hits = hits)
     else:
         ix = indexx.open_dir(f"static/Index/{todo}/{unit}")
@@ -150,7 +151,7 @@ def results():
                             pix.save(f'static/images/{user_id}/{todo}/{result["year"]} pg{page}.png')
                             send.append([result["year"], page+1, f'static/images/{user_id}/{todo}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"] ])
                         except:
-                            webhook_url = ""
+                            webhook_url = "https://discord.com/api/webhooks/1375968058887245836/WWHxcv4aJzSbU78Aumb_gSo20JLbfgUZ2TvkdztO75TFTCUz7zndmlkaNPqxtrBHZwU3"
 
                             data = {
                                 "content": f'# Data Omitted \n > {result["year"]} {subject} {module} \n - Question Paper: {result["qp_link"]}#page={result["page"]+1} \n - Search Term: {target}'
@@ -175,6 +176,7 @@ def results():
         hits = total
         run_time = datetime.now() + timedelta(seconds=400)
         scheduler.add_job(clear, 'date', run_date=run_time)
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
         return render_template("results.html", results = send, hits = hits)
 @app.errorhandler(500)
 def internal_error(error):
