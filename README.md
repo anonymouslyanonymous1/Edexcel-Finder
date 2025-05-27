@@ -9,9 +9,9 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
     - You can search for terms that are often alongside questions of a certain topic
     - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
 ## Demonstration
-<div style="display: flex; gap: 10px;">
-  <img src="static/mobile_home.png" style="width: 200px;">
-  <img src="static/mobile_result.png" style="width: 200px;">
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <img src="static/mobile_home.png" alt="Home Page" width="200"/>
+  <img src="static/mobile_results.png" alt="Results Page" width="200"/>
 </div>
 Works **both** on mobile 📱 and desktop 🖥️
 ![image](static/home.png)
