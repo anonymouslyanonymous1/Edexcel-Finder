@@ -13,6 +13,7 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
   <img src="static/mobile_home.png" alt="Home Page" width="200"/>
   <img src="static/mobile_results.png" alt="Results Page" width="200"/>
 </div>
+
 Works **both** on mobile 📱 and desktop 🖥️
 
 ![image](static/home.png)
