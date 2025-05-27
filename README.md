@@ -14,6 +14,7 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
   <img src="static/mobile_results.png" alt="Results Page" width="200"/>
 </div>
 Works **both** on mobile 📱 and desktop 🖥️
+
 ![image](static/home.png)
 Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
 
