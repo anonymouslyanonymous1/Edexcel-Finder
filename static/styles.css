@@ -137,7 +137,7 @@ button{
 }
 #choicec:has(input[type="radio"]:checked){
     border: 2px solid #00c3ff;
-    width: calc(40vw / 2);
+    width: 30%;
 }
 .github-corner {
     position: fixed;
@@ -253,9 +253,9 @@ button{
     .choices{
         display: grid;
         height: 60vh;
-        top: 0;
         padding: 0;
-        gap: 10px;
+        top: 2vh;
+        gap: 4px;
         align-content: center;
         justify-items: center;
     }
@@ -264,8 +264,9 @@ button{
     }
     .spec{
         flex-direction: column;
-        top: 70vh;
         height: fit-content;
+        top: 78vh;
+        gap: 5px;
         transition: display 100ms ease-in-out;
     }
     .spec div{
@@ -275,13 +276,12 @@ button{
         text-align: center;
     }
     .engine{
-        position: absolute;
-        top: 60vh;
         display: flex;
+        top: 67vh;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
     }
     button{
         width: 200px;
