@@ -78,3 +78,4 @@ Hovering upon the image gives more details
 - Brought an error to my notice: @jazz_exe10 [Discord]
     - This led to the user ID differentiation and schedule deletion instead of immediate deletion upon request coming in
 - Toggle for old and new specification: @mere.illusion and @crysliz [Both Discord]
+- Addition of Biology: @subelemambopakemigataprendalomot [Discord]
