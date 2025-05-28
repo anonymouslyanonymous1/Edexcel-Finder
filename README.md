@@ -30,7 +30,7 @@ Hovering upon the image gives more details
 - An image is generated so that you can have a quick glance
     - If the image by itself doesn't suffice your needs, you can press the Question Paper button and if you are on desktop it would open it to the exact page from which you can navigate to other pages
 ## Backend
-- Like Marking Companion, Flask is the library that I used as the backbone for the project
+- Like [Marking Companion](https://github.com/anonymouslyanonymous1/Marking-Companion), Flask is the library that I used as the backbone for the project
 - Whoosh for searching through the indexed files
 - Fitz to create images of the pdfs
 ## Frontend
