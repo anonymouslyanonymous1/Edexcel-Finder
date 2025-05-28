@@ -16,10 +16,10 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
 
 Works **both** on mobile 📱 and desktop 🖥️
 
-![image](static/home.png)
+![Home Page preview](static/home.png)
 Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
 
-![image](static/results.png)
+![Results Page preview](static/results.png)
 Hovering upon the image gives more details
 ## Purpose of the site
 - It is to help you *quickly* practice papers based on specific topics
