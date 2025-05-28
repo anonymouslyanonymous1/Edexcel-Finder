@@ -61,7 +61,7 @@ Hovering upon the image gives more details
     - Indexed each unit of each subject separately instead of saving all units and all subjects in one index file
     - This solved the issue of Sample Paper's images coming up more than once unnecessarily
 - Added Biology, Decision
-- Added Old Specification papers for all of them going as far as **2009** for Sciences and **2014** for Mathematics
+- Added Old Specification papers for all of them going as far as **2009** for Sciences and **2014** for Mathematics *[barring C1234]*
     - Unused papers, R papers have also been added alongside for both New/Old Specification if available 
 - Added filters to allow choice of results from a particular version of specification or both
     - Side Note: New/Old alone > Both in terms of speed as lesser number files to search through and produce images for
