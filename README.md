@@ -76,6 +76,7 @@ Hovering upon the image gives more details
 - Images were being deleted for one if two or more users were using site simulataneously, so differentiated every user with an **unique Sessions id**
     - Added a scheduler which would clear each user's unique folder after 400 seconds of returning results
     - So, user has about ~6 minutes to enlarge results
+- Added icons to the buttons in the results page
 ---
 ### Ideas from users
 - Link to enlarge image: @cyberelixer [Discord]
