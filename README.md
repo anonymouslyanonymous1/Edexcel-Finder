@@ -10,8 +10,8 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
     - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
 ## Demonstration
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="static/mobile_home.png" alt="Home Page" width="200"/>
-  <img src="static/mobile_results.png" alt="Results Page" width="200"/>
+  <img src="static/mobile_home.png" alt="Home Page Mobile Preview" width="200"/>
+  <img src="static/mobile_results.png" alt="Results Page Mobile Preview" width="200"/>
 </div>
 
 Works **both** on mobile 📱 and desktop 🖥️
