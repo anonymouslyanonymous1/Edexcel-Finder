@@ -77,8 +77,7 @@ Hovering upon the image gives more details
     - Added a scheduler which would clear each user's unique folder after 400 seconds of returning results
     - So, user has about ~6 minutes to enlarge results
 - Added icons to the buttons in the results page
----
-### Ideas from users
+## Ideas from users
 - Link to enlarge image: @cyberelixer [Discord]
 - June 2017 data fix, date sequencing: @cor_.z [Discord]
 - Brought an error to my notice: @jazz_exe10 [Discord]
