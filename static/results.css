@@ -61,18 +61,29 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
+    width: fit-content;
     height: 20px;
     padding: 10px;
     text-align: center;
     border-radius: 20px;
     color: white;
     background-color: #0b2a41;
-    transition: border 100ms ease-in-out, width 100ms ease-in-out;
+    transition: border 100ms ease-in-out, transform 100ms ease-in-out;
 }
-#button:hover{
+.svgB{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid transparent;
+    gap: 15px;
+}
+.svgB p{
+    font-size: 10pt;
+    color: white;
+}
+.svgB:hover{
     border: 2px solid #00c3ff;
-    width: 120px;
+    transform: scaleX(1.1);
 }
 a{
     text-decoration: none;
@@ -92,12 +103,12 @@ a{
     width: 100%;
     gap: 10px;
 }
-svg{
+.combiner svg{
     padding: 0px;
     fill: #0b2a41;
     transition: fill 200ms ease-in-out;
 }
-svg:hover{
+.combiner svg:hover{
     fill: #00c3ff;
 }
 @media only screen and (max-width: 700px){
