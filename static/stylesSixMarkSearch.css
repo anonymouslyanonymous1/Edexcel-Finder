@@ -6,6 +6,37 @@
     margin: 0;
     font-family: Coolvetica;
 }
+body {
+  overflow: hidden;
+}
+.redirects{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #0b2a41;
+    gap: 10px;
+}
+.redirect{
+    border: 1px solid transparent;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5px;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 2px;
+    transition: border 200ms ease-in-out;
+}
+.redirect:hover{
+    border: 1px solid #00c3ff;
+}
+.redirects svg{
+    fill: #00c3ff;
+}
+.redirects p{
+    color: white;
+}
 .lander{
     height: 100vh;
     background-image: url(../static/mountains.avif);
@@ -32,7 +63,7 @@
     display: inline-flex;
     text-align: center;
     justify-content: center;
-    width: calc(100vw / 9);
+    width: calc(98vw / 4);
     border-radius: 20px;
     overflow: hidden;
     transition: box-shadow 200ms ease-in-out;
@@ -106,7 +137,7 @@ button{
 }
 #subjectc:has(input[type="radio"]:checked){
     border: 2px solid #00c3ff;
-    width: 15%;
+    width: 20%;
 }
 .spec{
     display: flex;
@@ -126,11 +157,11 @@ button{
     color: white;
     display: inline-flex;
     text-align: center;
+    border: 2px solid transparent;
     justify-content: center;
     width: calc(40vw / 3);
     border-radius: 20px;
     overflow: hidden;
-    border: 2px solid transparent;
     transition: box-shadow 200ms ease-in-out;
 }
 #choicec{
@@ -328,5 +359,9 @@ button{
     .close-button {
         padding: 8px 12px;
         font-size: 13px;
+    }
+    .redirects{
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 }

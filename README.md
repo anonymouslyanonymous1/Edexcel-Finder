@@ -86,3 +86,5 @@ Hovering upon the image gives more details
 - Addition of Biology: @subelemambopakemigataprendalomot [Discord]
 - https://edexcelfinder.onrender.com/SixMark suggested by @999remaining [Discord]
     - This is a compilation of all the descriptive/mathematical 6 markers that have come up in previous years for the Sciences [January 2010 to January 2024]
+- https://edexcelfinder.onrender.com/SixMarkSearch suggested by @subelemambopakemigataprendalomot [Discord]
+    - Also suggested adding redirect buttons on the two aforementioned routes

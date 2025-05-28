@@ -6,6 +6,9 @@
     margin: 0;
     font-family: Coolvetica;
 }
+body {
+  overflow: hidden;
+}
 .lander{
     height: 100vh;
     background-image: url(../static/mountains.avif);
@@ -13,6 +16,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.redirects{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #0b2a41;
+    gap: 10px;
+}
+.redirect{
+    border: 1px solid transparent;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5px;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 2px;
+    transition: border 200ms ease-in-out;
+}
+.redirect:hover{
+    border: 1px solid #00c3ff;
+}
+.redirects svg{
+    fill: #00c3ff;
+}
+.redirects p{
+    color: white;
 }
 .choices{
     display: flex;
@@ -73,7 +104,7 @@ button{
     width: 20vw;
     color: white;
     border: 0px;
-    background-color: #0b4e81;
+    background-color: #032239;
     border-radius: 20px;
     transition: border 100ms ease-in-out;
 }
@@ -320,5 +351,9 @@ button:hover{
     .close-button {
         padding: 8px 12px;
         font-size: 13px;
+    }
+    .redirects{
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 }

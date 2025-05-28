@@ -4,20 +4,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="../static/icon.png">
-        <link rel="stylesheet" href="../static/stylesSixMark.css">
-        <title>Edexcel Six Markers</title>
-        <meta property="og:url" content="https://edexcelfinder.onrender.com/SixMark">
+        <link rel="stylesheet" href="../static/stylesSixMarkSearch.css">
+        <title>Six Marker Edexcel Finder</title>
+        <meta property="og:url" content="https://edexcelfinder.onrender.com/SixMarkSearch">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="Edexcel Six Markers">
-        <meta property="og:description" content="A collection of all the descriptive/mathematical six marker questions that have shown up in papers from January 2010 to January 2024">
+        <meta property="og:title" content="Edexcel Six Mark Finder">
+        <meta property="og:description" content="This is an Edexcel Finder extension to http://edexcelfinder.onrender.com/SixMark - which has all the six marker questions that have come up over the years, compiled">
         <meta property="og:image" content="http://edexcelfinder.onrender.com/static/bg6.png">
         <meta property="theme-color" content="#02f0fe">
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
         <meta property="twitter:domain" content="edexcelfinder.onrender.com">
-        <meta property="twitter:url" content="https://edexcelfinder.onrender.com/SixMark">
-        <meta name="twitter:title" content="Edexcel Six Markers">
-        <meta name="twitter:description" content="A collection of all the descriptive/mathematical six marker questions that have shown up in papers from January 2010 to January 2024">
+        <meta property="twitter:url" content="https://edexcelfinder.onrender.com/SixMarkSearch">
+        <meta name="twitter:title" content="Edexcel Finder">
+        <meta name="twitter:description" content="This is an Edexcel Finder extension to http://edexcelfinder.onrender.com/SixMark - which has all the six marker questions that have come up over the years, compiled">
         <meta name="twitter:image" content="http://edexcelfinder.onrender.com/static/bg6.png">
         <meta name="google-site-verification" content="QdeOvCR3ZRyaO2GS1EIwatlxcKXUhxnyKZ-sAC2oiak" />
         <!-- Google tag (gtag.js) -->
@@ -107,7 +107,7 @@
                 <p>Search through them</p>
             </a>
         </div>
-        <form action="/SixMarkresults" method="get" id="EFForm" onsubmit="disableSubmitButton()">
+        <form action="/SixMarkSearchresults" method="get" id="EFForm" onsubmit="disableSubmitButton()">
             <div class="lander">
                 <div class="choices">
                     <div id="subjectc" class="Chemistry">
@@ -139,8 +139,11 @@
                     </div>
                 </div>
                 <div class="engine">
+                    <div class="search">
+                        <input type="search" id="search" name="search" required placeholder="Search Here">
+                    </div>
                     <div class="button">
-                        <button type="submit" onclick="checkRadio(); checkChoice()"><span style="font-size: 15pt;">Get 6 Markers</span></button> 
+                        <button type="submit" onclick="checkRadio(); checkChoice()"><span style="font-size: 15pt;">Search</span></button> 
                     </div>
                 </div>
                 <div class="spec">

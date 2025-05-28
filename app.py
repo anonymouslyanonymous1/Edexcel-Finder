@@ -230,7 +230,63 @@ def SixMarkresults():
         hits = total
         send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
     return render_template("resultsSixMark.html", results = send, hits = hits)
-
+@app.route("/SixMarkSearch", methods=["GET", "POST"])
+def SixMarkSearch():
+    global user_id
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4())
+    user_id = session['user_id']
+    # print(f"user ID: {user_id}")
+    return render_template("SixMarkSearch.html")
+@app.route("/SixMarkSearchresults", methods=["GET", "POST"])
+def SixMarkSearchresults():
+    send = []
+    subject = request.args.get("subject")
+    unit = request.args.get("unit")
+    choice = request.args.get("choice")
+    target = request.args.get("search").lower()
+    folder = []
+    if choice == "both":
+            old = f"Old {subject}"
+            folder.append(["Old Specification", old])
+            new = f"{subject} (2018)"
+            folder.append(["New Specification", new])
+    elif choice == "new":
+        todo = f"{subject} (2018)"
+    else:
+        todo = f"Old {subject}"
+    total = 0
+    old_count = 0
+    new_count = 0
+    if folder:
+        for one in folder:
+            ix = indexx.open_dir(f"static/SixMark/Index/{one[1]}/{unit}")
+            qp = QueryParser("content", schema=ix.schema)
+            query = qp.parse(target) 
+            with ix.searcher() as searcher:
+                results = searcher.search(query, limit=None)
+                for result in results:
+                    send.append([result["year"], result["page"], result["image_link"], result["qp_link"], result["ms_link"]])
+            total = total + len(results)
+            if one[1] == old:
+                old_count = len(results)
+            else:
+                new_count = len(results)
+        hits = f"{total} [Old: {old_count}, New: {new_count}]"
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
+        return render_template("resultsSixMarkSearch.html", results = send, hits = hits)
+    else:
+        ix = indexx.open_dir(f"static/SixMark/Index/{todo}/{unit}")
+        qp = QueryParser("content", schema=ix.schema)
+        query = qp.parse(target) 
+        with ix.searcher() as searcher:
+            results = searcher.search(query, limit=None)
+            for result in results:
+                send.append([result["year"], result["page"], result["image_link"], result["qp_link"], result["ms_link"]])
+        total = len(results)
+        hits = total
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
+        return render_template("resultsSixMarkSearch.html", results = send, hits = hits)
 @app.errorhandler(500)
 def internal_error(error):
     return render_template("error.html", error=str(traceback.format_exc())), 500
