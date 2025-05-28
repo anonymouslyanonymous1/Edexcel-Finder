@@ -97,7 +97,7 @@ def results():
                                 pix.save(f'static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png')
                                 send.append([result["year"], page+1, f'static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"] ])
                             except:
-                                webhook_url = "https://discord.com/api/webhooks/1375968058887245836/WWHxcv4aJzSbU78Aumb_gSo20JLbfgUZ2TvkdztO75TFTCUz7zndmlkaNPqxtrBHZwU3"
+                                webhook_url = ""
 
                                 data = {
                                     "content": f'# Data Omitted \n > {result["year"]} {subject} {module} \n - Question Paper: {result["qp_link"]}#page={result["page"]} \n - Search Term: {target}'
@@ -152,7 +152,7 @@ def results():
                             pix.save(f'static/images/{user_id}/{todo}/{result["year"]} pg{page}.png')
                             send.append([result["year"], page+1, f'static/images/{user_id}/{todo}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"] ])
                         except:
-                            webhook_url = "https://discord.com/api/webhooks/1375968058887245836/WWHxcv4aJzSbU78Aumb_gSo20JLbfgUZ2TvkdztO75TFTCUz7zndmlkaNPqxtrBHZwU3"
+                            webhook_url = ""
 
                             data = {
                                 "content": f'# Data Omitted \n > {result["year"]} {subject} {module} \n - Question Paper: {result["qp_link"]}#page={result["page"]+1} \n - Search Term: {target}'
