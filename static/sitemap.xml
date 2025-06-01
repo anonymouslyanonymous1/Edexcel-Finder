@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://edexcelfinder.onrender.com/</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/404.png</image:loc>
+      <image:caption>Image shown in case of a 404 error</image:caption>
+      <image:title>404 Error Not Found</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/bg.png</image:loc>
+      <image:caption>Edexcel Finder</image:caption>
+      <image:title>Edexcel Finder</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/home.png</image:loc>
+      <image:caption>Edexcel Finder Preview/ Demonstration</image:caption>
+      <image:title>Edexcel Finder Home Page Preview/ Demonstration</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/icon.png</image:loc>
+      <image:caption>Edexcel Finder Icon/Logo</image:caption>
+      <image:title>Edexcel Finder Icon/Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/iconerror.png</image:loc>
+      <image:caption>Edexcel Finder Error Icon</image:caption>
+      <image:title>Edexcel Finder Error Icon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/mobile_home.png</image:loc>
+      <image:caption>Edexcel Finder Home page on Mobile</image:caption>
+      <image:title>Edexcel Finder Home Page Mobile Demonstration/Preview</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/mobile_results.png</image:loc>
+      <image:caption>Edexcel Finder Results Page Demonstration/Preview</image:caption>
+      <image:title>Edexcel Finder Results Page Demonstration/Preview</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/mountains.avif</image:loc>
+      <image:caption>Edexcel Finder Background by CreativeVix</image:caption>
+      <image:title>Edexcel Finder Background by CreativeVix</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/results.png</image:loc>
+      <image:caption>Edexcel Finder Results Page Demonstration/Preview</image:caption>
+      <image:title>Edexcel Finder Results Page Demonstration/Preview</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://edexcelfinder.onrender.com/SixMark</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://edexcelfinder.onrender.com/static/bg6.png</image:loc>
+      <image:caption>Edexcel Six Markers</image:caption>
+      <image:title>Edexcel Six Markers</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://edexcelfinder.onrender.com/SixMarkSearch</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
