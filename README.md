@@ -10,16 +10,16 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
     - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
 ## Demonstration
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="static/mobile_home.png" alt="Home Page Mobile Preview" width="200"/>
-  <img src="static/mobile_results.png" alt="Results Page Mobile Preview" width="200"/>
+  <img src="static/mobile_home.png" alt="Home Page Mobile Preview/Screenshot" width="200"/>
+  <img src="static/mobile_results.png" alt="Results Page Mobile Preview/Screenshot" width="200"/>
 </div>
 
 Works **both** on mobile 📱 and desktop 🖥️
 
-![Home Page Preview](static/home.png)
+![Home Page Preview/Screenshot](static/home.png)
 Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
 
-![Results Page Preview](static/results.png)
+![Results Page Preview/Screenshot](static/results.png)
 Hovering upon the image gives more details
 ## Purpose of the site
 - It is to help you *quickly* practice papers based on specific topics
