@@ -1,7 +1,8 @@
 ![image](static/bg.png)
 Inspired by [CAIE Finder](https://caiefinder.com/)
 # [Edexcel Finder](https://edexcelfinder.onrender.com/)
-
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Data Extraction and Indexing Files](https://img.shields.io/badge/Data_Extraction-Edexcel_Finder-1cd9fe.svg)](https://github.com/anonymouslyanonymous1/Data-Extraction-and-Analysis/tree/main/Edexcel%20Finder)
 ## Use Case
 - It can be used to identify which year a specific question is from 
     - The more exact your search term is is, the __more quicker and curated__ the results
