@@ -37,12 +37,12 @@ Hovering upon the image gives more details
 - Raw HTML and CSS has been used
 - Used a [mountain](https://www.pexels.com/photo/aerial-photography-of-pine-trees-on-the-mountain-9754/) as the background because it made me feel I was paying homage to the evergreen Windows XP scenery/grass wallpaper
 ## Extraction, Index, Search
-- `static/Fetch` contains all the Question Papers and Mark Schems for every year
+- `static/Fetch` contains all the Question Papers and Mark Schemes for every year as JavaScript Objects
 - `static/Paper`, right now it contains only the Sample Papers, but during production it had all the papers downloaded
     - During deployment I changed to downloading papers only when needed to save on storage
-- `static/Data` contains all the text and page, Question Paper, Mark Scheme for every unit of every subject
+- `static/Data` contains all the text and page, Question Paper, Mark Scheme for every unit of every subject as JavaScript Objects
     - This was made by analysis of `static/Paper`
-- `static/Index` contains the files that Whoosh requires for searching
+- `static/Index` contains the index files that Whoosh requires for searching
     - It is made by iterating through `static/Data`
 - The search is done by Whoosh. It goes to the particular directory of what user wants and goes through the index files in it
     - During indexing, the _Year, Page, QP_Link, MS_Link_ were included alongside each page's content
