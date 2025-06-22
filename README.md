@@ -38,6 +38,7 @@ Hovering upon the image gives more details
 - Raw HTML and CSS has been used
 - Used a [mountain](https://www.pexels.com/photo/aerial-photography-of-pine-trees-on-the-mountain-9754/) as the background because it made me feel I was paying homage to the evergreen Windows XP scenery/grass wallpaper
 ## Extraction, Index, Search
+- For the files itself, check the link at the top
 - `static/Fetch` contains all the Question Papers and Mark Schemes for every year as JavaScript Objects
 - `static/Paper`, right now it contains only the Sample Papers, but during production it had all the papers downloaded
     - During deployment I changed to downloading papers only when needed to save on storage
