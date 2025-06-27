@@ -3,25 +3,8 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
 # [Edexcel Finder](https://edexcelfinder.onrender.com/)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Data Extraction and Indexing Files](https://img.shields.io/badge/Production_Files-Edexcel_Finder-1cd9fe.svg)](https://github.com/anonymouslyanonymous1/Data-Extraction-and-Analysis/tree/main/Edexcel%20Finder)
-## Use Case
-- It can be used to identify which year a specific question is from 
-    - The more exact your search term is is, the __more quicker and curated__ the results
-- Can help make topicals/ chapterwise papers to practice
-    - You can search for terms that are often alongside questions of a certain topic
-    - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
-## Demonstration
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="static/mobile_home.png" alt="Home Page Mobile Preview/Screenshot" width="200"/>
-  <img src="static/mobile_results.png" alt="Results Page Mobile Preview/Screenshot" width="200"/>
-</div>
 
-Works **both** on mobile 📱 and desktop 🖥️
 
-![Home Page Preview/Screenshot](static/home.png)
-Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
-
-![Results Page Preview/Screenshot](static/results.png)
-Hovering upon the image gives more details
 ## Purpose of the site
 - It is to help you *quickly* practice papers based on specific topics
 - Emphasis on quickly because you can also Google for papers and go on about studying
@@ -30,6 +13,43 @@ Hovering upon the image gives more details
 - You get the Question Paper and Mark Scheme Links together
 - An image is generated so that you can have a quick glance
     - If the image by itself doesn't suffice your needs, you can press the Question Paper button and if you are on desktop it would open it to the exact page from which you can navigate to other pages
+
+## How to use
+- It can be used to identify which year a specific question is from 
+    - The more exact your search term is is, the __more quicker and curated__ the results
+- Can help make topicals/ chapterwise papers to practice
+    - You can search for terms that are often alongside questions of a certain topic
+    - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
+Works **both** on mobile 📱 and desktop 🖥️
+## Demonstration
+<div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+  <div style="text-align: center;">
+    <img src="static/mobile_home.png" alt="Home Page Mobile Preview/Screenshot" width="200"/>
+    <p>Mobile Home Page</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="static/mobile_results.png" alt="Results Page Mobile Preview/Screenshot" width="200"/>
+    <p>Mobile Results Page</p>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <div style="text-align: center;">
+    <img src="static/home.png" alt="Home Page Preview/Screenshot" width="300"/>
+    <p>Desktop Home Page</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="static/results.png" alt="Results Page Preview/Screenshot" width="300"/>
+    <p>Desktop Results Page</p>
+  </div>
+</div>
+
+
+- Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
+
+- ![Results Page Preview/Screenshot](static/results.png)
+Hovering upon the image gives more details
+
 ## Backend
 - Like [Marking Companion](https://github.com/anonymouslyanonymous1/Marking-Companion) & [Edexcel Charts](https://github.com/anonymouslyanonymous1/Edexcel-Charts), Flask is the library that I used as the backbone for the project
 - Whoosh for searching through the indexed files
