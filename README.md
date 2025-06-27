@@ -2,7 +2,7 @@
 Inspired by [CAIE Finder](https://caiefinder.com/)
 # [Edexcel Finder](https://edexcelfinder.onrender.com/)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Data Extraction and Indexing Files](https://img.shields.io/badge/Production_Files-Edexcel_Finder-1cd9fe.svg)](https://github.com/anonymouslyanonymous1/Data-Extraction-and-Analysis/tree/main/Edexcel%20Finder)
+[![Data Extraction and Indexing Files](https://img.shields.io/badge/Production_Files-Edexcel_Finder-1cd9fe.svg)](https://github.com/anonymouslyanonymous1/Data-Extraction-and-Analysis/tree/main/Edexcel%20Finder) <br>
 <img src="https://skillicons.dev/icons?i=python,flask,html,css&theme=dark" /> 
 
 ## Purpose of the site
