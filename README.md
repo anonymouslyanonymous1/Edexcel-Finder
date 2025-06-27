@@ -3,7 +3,7 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
 # [Edexcel Finder](https://edexcelfinder.onrender.com/)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Data Extraction and Indexing Files](https://img.shields.io/badge/Production_Files-Edexcel_Finder-1cd9fe.svg)](https://github.com/anonymouslyanonymous1/Data-Extraction-and-Analysis/tree/main/Edexcel%20Finder)
-
+<img src="https://skillicons.dev/icons?i=python,flask,html,css&theme=dark" /> 
 
 ## Purpose of the site
 - It is to help you *quickly* practice papers based on specific topics
@@ -34,7 +34,7 @@ Works **both** on mobile 📱 and desktop 🖥️
 - Hovering upon the image gives more details
 
 ## Backend
-- Like [Marking Companion](https://github.com/anonymouslyanonymous1/Marking-Companion) & [Edexcel Charts](https://github.com/anonymouslyanonymous1/Edexcel-Charts), Flask is the library that I used as the backbone for the project
+- Like [Marking Companion (Python, V1)](https://github.com/anonymouslyanonymous1/Marking-Companion/tree/py-phase) & [Edexcel Charts](https://github.com/anonymouslyanonymous1/Edexcel-Charts), Flask is the library that I used as the backbone for the project
 - Whoosh for searching through the indexed files
 - Fitz to create images of the pdfs
 ## Frontend
