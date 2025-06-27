@@ -22,33 +22,16 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
     - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
 Works **both** on mobile 📱 and desktop 🖥️
 ## Demonstration
-<div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
-  <div style="text-align: center;">
-    <img src="static/mobile_home.png" alt="Home Page Mobile Preview/Screenshot" width="200"/>
-    <p>Mobile Home Page</p>
-  </div>
-  <div style="text-align: center;">
-    <img src="static/mobile_results.png" alt="Results Page Mobile Preview/Screenshot" width="200"/>
-    <p>Mobile Results Page</p>
-  </div>
-</div>
+| Mobile Home Page | Mobile Results Page |
+|------------------|--------------------|
+| <img src="static/mobile_home.png" alt="Home Page Mobile Preview/Screenshot" width="200"/> | <img src="static/mobile_results.png" alt="Results Page Mobile Preview/Screenshot" width="200"/> |
 
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <div style="text-align: center;">
-    <img src="static/home.png" alt="Home Page Preview/Screenshot" width="300"/>
-    <p>Desktop Home Page</p>
-  </div>
-  <div style="text-align: center;">
-    <img src="static/results.png" alt="Results Page Preview/Screenshot" width="300"/>
-    <p>Desktop Results Page</p>
-  </div>
-</div>
-
-
+| Desktop Home Page | Desktop Results Page |
+|-------------------|---------------------|
+| <img src="static/home.png" alt="Home Page Preview/Screenshot" width="300"/> | <img src="static/results.png" alt="Results Page Preview/Screenshot" width="300"/> |
 - Like this ⤴️ any _common_ term can be searched for and that would give a list of all questions containing that term
 
-- ![Results Page Preview/Screenshot](static/results.png)
-Hovering upon the image gives more details
+- Hovering upon the image gives more details
 
 ## Backend
 - Like [Marking Companion](https://github.com/anonymouslyanonymous1/Marking-Companion) & [Edexcel Charts](https://github.com/anonymouslyanonymous1/Edexcel-Charts), Flask is the library that I used as the backbone for the project
