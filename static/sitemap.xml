@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://edexcelfinder.onrender.com/</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -54,7 +54,7 @@
 
   <url>
     <loc>https://edexcelfinder.onrender.com/SixMark</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -65,7 +65,7 @@
   </url>
   <url>
     <loc>https://edexcelfinder.onrender.com/SixMarkSearch</loc>
-    <lastmod>2025-05-28</lastmod>
+    <lastmod>2025-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
