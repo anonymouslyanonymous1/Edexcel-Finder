@@ -9,19 +9,19 @@ const codeMapping = {
     "Biology": "Biology",
 }
 const units = {"New": {
-    "Chemistry": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"],
-    "Physics": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"],
-    "Biology": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"],
+    "Chemistry": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
+    "Physics": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
+    "Biology": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
 },
 "Old": {
-    "Chemistry": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
-    "Physics": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
-    "Biology": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
+    "Chemistry": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
+    "Physics": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
+    "Biology": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
 },
 "Both": {
-    "Chemistry": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
-    "Physics": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
-    "Biology": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
+    "Chemistry": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
+    "Physics": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
+    "Biology": ["Unit 1", "Unit 2", "Unit 4", "Unit 5"],
 }}
 window.addEventListener('pageshow', (event) => {
     document.querySelector('.search-button').disabled = false;
