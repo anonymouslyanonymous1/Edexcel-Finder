@@ -39,7 +39,8 @@ Works **both** on mobile 📱 and desktop 🖥️
 - Fitz to create images of the pdfs
 ## Frontend
 - Raw HTML and CSS has been used
-- Used a [mountain](https://www.pexels.com/photo/aerial-photography-of-pine-trees-on-the-mountain-9754/) as the background because it made me feel I was paying homage to the evergreen Windows XP scenery/grass wallpaper
+
+~~- Used a [mountain](https://www.pexels.com/photo/aerial-photography-of-pine-trees-on-the-mountain-9754/) as the background because it made me feel I was paying homage to the evergreen Windows XP scenery/grass wallpaper~~
 ## Extraction, Index, Search
 - For the files itself, check the link at the top
 - `static/Fetch` contains all the Question Papers and Mark Schemes for every year as JavaScript Objects
@@ -82,6 +83,14 @@ Works **both** on mobile 📱 and desktop 🖥️
     - Added a scheduler which would clear each user's unique folder after 400 seconds of returning results
     - So, user has about ~6 minutes to enlarge results
 - Added icons to the buttons in the results page
+## Changelog: v3.1
+- A new UI for the home, SixMark and SixMarkSearch page with more dynamic adjustments than hardcoded values
+- Links to the other two pages added at bottom-right on the home page
+- The card asking for star removed
+
+| Before | After |
+|-------------------|---------------------|
+| <img src="static/old.png" alt="Old Home Page" width="300"/> | <img src="static/home.png" alt="New Home Page" width="300"/> |
 ## Ideas from users
 - Link to enlarge image: @cyberelixer [Discord]
 - June 2017 data fix, date sequencing: @cor_.z [Discord]
