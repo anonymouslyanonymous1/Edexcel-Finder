@@ -100,4 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
         top: `${clientY}px`
     }, { duration: 3000, fill: "forwards" });
     }
+    
+    const input = document.querySelector(".search-bar");
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.querySelector(".search-button").click();
+    }
+});
 })
