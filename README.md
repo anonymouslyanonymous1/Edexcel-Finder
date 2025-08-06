@@ -21,9 +21,9 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
     - You can search for terms that are often alongside questions of a certain topic
     - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
 
-Works **both** on mobile 📱 and desktop 🖥️
-
 ## Demonstration
+- Works **both** on mobile 📱 and desktop 🖥️
+  
 | Mobile Home Page | Mobile Results Page |
 |------------------|--------------------|
 | <img src="static/mobile_home.png" alt="Home Page Mobile Preview/Screenshot" width="200"/> | <img src="static/mobile_results.png" alt="Results Page Mobile Preview/Screenshot" width="200"/> |
