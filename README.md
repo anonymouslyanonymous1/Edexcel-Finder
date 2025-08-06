@@ -20,7 +20,9 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
 - Can help make topicals/ chapterwise papers to practice
     - You can search for terms that are often alongside questions of a certain topic
     - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
+
 Works **both** on mobile 📱 and desktop 🖥️
+
 ## Demonstration
 | Mobile Home Page | Mobile Results Page |
 |------------------|--------------------|
