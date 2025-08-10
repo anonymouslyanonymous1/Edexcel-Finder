@@ -157,6 +157,12 @@ input[name="unit"]:checked + label div {
     z-index: -1;
     backdrop-filter: blur(12vmax);
 }
+.clip {
+    position: fixed;
+    inset: 0;
+    overflow: hidden; 
+    z-index: -2;    
+}
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
