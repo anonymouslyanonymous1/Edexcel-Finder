@@ -32,7 +32,7 @@
 {% block search %}
 <style>
 .search-button {
-    width: 400px;
+    width: 600px;
     font-family: Coolvetica;
     height: 50px;
     border-radius: 20px;
@@ -54,6 +54,28 @@
 .search-button:hover {
     background-color: #0ec9ff;
 }
+.search-container{
+    padding: 5px;
+    border: 0px;
+    position: relative;
+    width: 600px;
+    display: flex;
+    border-radius: 40px;
+    overflow: hidden;
+    transition: all 200ms ease-in-out;
+}
+@media (width <= 1000px){
+    .search-container{
+        justify-content: center;
+        align-items: center;
+    }
+    .search-button{
+        width: 400px;
+        padding: 2px;
+    }
+}
 </style>
-<button class="search-button" onclick="handleSubmit()"><img class="search-icon" src="../static/icon.png"><p>Search</p></button>
+<div class="search-container">
+    <button class="search-button" onclick="handleSubmit()"><img class="search-icon" src="../static/icon.png"><p>Search</p></button>
+</div>
 {% endblock %}

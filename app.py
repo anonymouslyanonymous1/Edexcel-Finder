@@ -196,7 +196,7 @@ def SixMarkresults():
                 data = open(f"./static/SixMark/Data/{one[1]}/{unit}/{file}", "r", encoding="utf-8")
                 data = json.load(data)
                 for row in data:
-                    send.append([row["Title"], row["Page"], row["Image_Link"], row["QP_Link"], row["MS_Link"]])
+                    send.append([row["Title"], row["Page"]+1, row["Image_Link"], row["QP_Link"], row["MS_Link"], row["Unit_Code"]])
                     total = total + 1
                     if one[1] == old:
                         old_count = old_count + 1
@@ -209,7 +209,7 @@ def SixMarkresults():
             data = open(f"./static/SixMark/Data/{todo}/{unit}/{file}", "r", encoding="utf-8")
             data = json.load(data)
             for row in data:
-                send.append([row["Title"], row["Page"], row["Image_Link"], row["QP_Link"], row["MS_Link"]])
+                send.append([row["Title"], row["Page"]+1, row["Image_Link"], row["QP_Link"], row["MS_Link"], row["Unit_Code"]])
                 total = total + 1
         hits = total
         send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
@@ -250,7 +250,7 @@ def SixMarkSearchresults():
             with ix.searcher() as searcher:
                 results = searcher.search(query, limit=None)
                 for result in results:
-                    send.append([result["year"], result["page"], result["image_link"], result["qp_link"], result["ms_link"]])
+                    send.append([result["year"], result["page"]+1, result["image_link"], result["qp_link"], result["ms_link"], result["unit_code"]])
             total = total + len(results)
             if one[1] == old:
                 old_count = len(results)
@@ -267,7 +267,7 @@ def SixMarkSearchresults():
             results = searcher.search(query, limit=None)
             print(results)
             for result in results:
-                send.append([result["year"], result["page"], result["image_link"], result["qp_link"], result["ms_link"]])
+                send.append([result["year"], result["page"]+1, result["image_link"], result["qp_link"], result["ms_link"], result["unit_code"]])
         total = len(results)
         hits = total
         send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
