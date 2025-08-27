@@ -105,8 +105,8 @@ def results():
                             Page = pdf.load_page(page)
                             pix = Page.get_pixmap(dpi=160)
                             ensure_directory(f'./static/images/{user_id}/{one[0]}')
-                            pix.save(f'./static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png')
-                            send.append([result["year"], page+1, f'./static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
+                            pix.save(f'./static/images/{user_id}/{one[0]}/{result["unit_code"]} {result["year"]} pg{page}.png')
+                            send.append([result["year"], page+1, f'./static/images/{user_id}/{one[0]}/{result["unit_code"]} {result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
                             # send.append([result["year"], page+1, f'./static/404.png', result["qp_link"], result["ms_link"] ])
                     else:
                         page = result["page"]
@@ -114,8 +114,8 @@ def results():
                         Page = pdf.load_page(page)
                         pix = Page.get_pixmap(dpi=160)
                         ensure_directory(f'./static/images/{user_id}/{one[0]}')
-                        pix.save(f'./static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png')
-                        send.append([result["year"], page+1, f'./static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
+                        pix.save(f'./static/images/{user_id}/{one[0]}/{result["unit_code"]} {result["year"]} pg{page}.png')
+                        send.append([result["year"], page+1, f'./static/images/{user_id}/{one[0]}/{result["unit_code"]} {result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
             total = total + len(results)
             if one[1] == old:
                 old_count = len(results)
@@ -146,8 +146,8 @@ def results():
                         Page = pdf.load_page(page)
                         pix = Page.get_pixmap(dpi=160)
                         ensure_directory(f'./static/images/{user_id}/{todo}')
-                        pix.save(f'./static/images/{user_id}/{todo}/{result["year"]} pg{page}.png')
-                        send.append([result["year"], page+1, f'./static/images/{user_id}/{todo}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
+                        pix.save(f'./static/images/{user_id}/{todo}/{result["unit_code"]} {result["year"]} pg{page}.png')
+                        send.append([result["year"], page+1, f'./static/images/{user_id}/{todo}/{result["unit_code"]} {result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
                         # send.append([result["year"], page+1, f'./static/404.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
                 else:
                     page = result["page"]
@@ -155,8 +155,8 @@ def results():
                     Page = pdf.load_page(page)
                     pix = Page.get_pixmap(dpi=160)
                     ensure_directory(f'./static/images/{user_id}/{todo}')
-                    pix.save(f'./static/images/{user_id}/{todo}/{result["year"]} pg{page}.png')
-                    send.append([result["year"], page+1, f'./static/images/{user_id}/{todo}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
+                    pix.save(f'./static/images/{user_id}/{todo}/{result["unit_code"]} {result["year"]} pg{page}.png')
+                    send.append([result["year"], page+1, f'./static/images/{user_id}/{todo}/{result["unit_code"]} {result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
         total = len(results)
         hits = total
         run_time = datetime.now() + timedelta(seconds=400)
