@@ -1,7 +1,7 @@
 *.py linguist-language=Python
-*.js linguist-language=JavaScript
 
 *.ps1 linguist-vendored
+*.js linguist-vendored
 *.bat linguist-vendored
 *.cmd linguist-vendored
 *.html linguist-vendored
