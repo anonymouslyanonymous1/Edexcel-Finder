@@ -69,8 +69,8 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
     - Indexed each unit of each subject separately instead of saving all units and all subjects in one index file
     - This solved the issue of Sample Paper's images coming up more than once unnecessarily
 - Added Biology, Decision
-- Added Old Specification papers for all of them going as far as **2009** for Sciences and **2014** for Mathematics *[barring C1234]*
-    - Unused papers, R papers have also been added alongside for both New/Old Specification if available 
+- Added Old Specification papers for all of them going as far as **2009** for Sciences and **2003** for Mathematics
+    - Unused papers, R papers have also been added alongside for both New/Old Specification (if available)
 - Added filters to allow choice of results from a particular version of specification or both
     - Side Note: New/Old alone > Both in terms of speed as lesser number files to search through and produce images for
 - Made the Github icon a tad bit nicer (added animation)
@@ -89,6 +89,17 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
 - A new UI for the home, SixMark and SixMarkSearch page with more dynamic adjustments than hardcoded values
 - Links to the other two pages added at bottom-right on the home page
 - The card asking for star removed
+## Changelog: v4
+- Re-scraped and re-indexed database, correcting mistakes of my past self
+    - Huge thanks to [PMT](https://www.physicsandmathstutor.com/). I used their site to download a few old spec papers that Pearson's site doesn't have.
+- Added ability to compile search results into a downloadable PDF, both for print and storage
+    - Storage one has links to the Question Paper and Mark Scheme, thus can also be shared
+    - Print one doesn't and is just how the Question Paper has been designed
+- Minor UI Changes
+    - Added a loading icon
+    - Updated the search button on /SixMark
+        *  /SixMark now contains questions above 6 mark as well
+- Used Flask Templating to reduce redundancy
 
 | Before | After |
 |-------------------|---------------------|

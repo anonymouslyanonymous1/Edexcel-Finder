@@ -2,6 +2,9 @@
     font-family: Coolvetica;
     src: url('coolvetica.otf') format('opentype');
 }
+:root{
+    --img-height: 90vh;
+}
 *{
     margin: 0;
     font-family: Coolvetica;
@@ -9,22 +12,20 @@
 }
 body{
     background-color: rgb(231, 245, 255);
+    padding: 1rem 2rem;
 }
 .images{
-    padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    height: 100%;
+    height: 100%;    
 }
 .wrapper{
     display: block;
-}
-.wrapper{
     width: inherit;
-    height: 80vh;
+    height: var(--img-height);
     position: relative;
     background-color: aqua;
 }
@@ -36,7 +37,7 @@ body{
     height: 100%;
     background-image: linear-gradient( rgba(225, 225, 225, 0.308), rgba(126, 231, 252, 0.568));
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 10px;
     box-sizing: border-box;
     padding: 20px;
@@ -45,22 +46,45 @@ body{
     opacity: 0;
     transition: opacity 200ms ease-in-out;
 }
+.checkbox{
+    position: absolute;
+    z-index: 10;
+    left: 2%;
+    bottom: 95%;
+    aspect-ratio: 1/1;
+    width: 18px;
+    cursor: pointer;
+}
+.checkbox:checked {
+    accent-color: #0b2a41;
+}
 img{
-    height: 80vh;
+    height: var(--img-height);
+    z-index: -1;
 }
 .wrapper:hover .info{
     opacity: 1;
 }
-.buttons{
+.imgButtons{
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
     padding-bottom: 20px;
 }
-#button{
+.topButtons{
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+.button{
+    cursor: pointer;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     width: fit-content;
     height: 20px;
     padding: 10px;
@@ -68,25 +92,20 @@ img{
     border-radius: 20px;
     color: white;
     background-color: #0b2a41;
-    transition: border 100ms ease-in-out, transform 100ms ease-in-out;
-}
-.svgB{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     border: 2px solid transparent;
-    gap: 15px;
+    transition: all 200ms ease-in-out;
 }
-.svgB p{
+.button p{
     font-size: 10pt;
     color: white;
 }
-.svgB:hover{
+.button:hover{
     border: 2px solid #00c3ff;
-    transform: scaleX(1.1);
+    transform: translateY(-5px);
 }
-a{
+.wrapper a{
     text-decoration: none;
+    cursor: pointer;
 }
 .combiner a{
     display: flex;
@@ -94,7 +113,8 @@ a{
     align-items: center;
 }
 .hits{
-    text-align: center;
+    text-align: left;
+    margin-bottom: 10px;
 }
 .combiner{
     display: flex;
@@ -103,31 +123,20 @@ a{
     width: 100%;
     gap: 10px;
 }
-.combiner svg{
-    padding: 0px;
-    fill: #0b2a41;
-    transition: fill 200ms ease-in-out;
-}
-.combiner svg:hover{
-    fill: #00c3ff;
-}
 @media only screen and (max-width: 700px){
     .images{
         flex-direction: column;
-        padding: 4px;
+    }
+    .topButtons p{
+        font-size: 5pt;
+    }
+    #home{
+        font-size: 10pt;
     }
     .hits{
         text-align: center;
     }
-    .combiner{
-        align-items: center;
-        gap: 0px;
-        text-align: center;
-        font-size: 10pt;
-    }
-    .combiner a{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .topButtons{
+        justify-items: center;
     }
 }

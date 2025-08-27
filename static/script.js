@@ -1,11 +1,11 @@
 const specMapping = {
-    New: ["WFM0", "WMA1", "WME0", "WST0", "WDM", "Chemistry", "Physics", "Biology"],
-    Old: ["WFM0", "WME0", "WST0", "WDM", "Chemistry", "Physics", "Biology"],
+    New: ["WFM0", "WMA", "WME0", "WST0", "WDM", "Chemistry", "Physics", "Biology"],
+    Old: ["WFM0", "WMA", "WME0", "WST0", "WDM", "Chemistry", "Physics", "Biology"],
     Both: ["WFM0", "WME0", "WST0", "WDM", "Chemistry", "Physics", "Biology"]
 }
 const codeMapping = {
     "WFM0": "Further Maths",
-    "WMA1": "Pure Maths",
+    "WMA": "Pure Maths",
     "WDM": "Decision",
     "WME0": "Mechanics",
     "WST0": "Statistics",
@@ -17,7 +17,7 @@ const units = {"New": {
     "WFM0": ["FP1", "FP2", "FP3"],
     "WME0": ["M1", "M2", "M3"],
     "WST0": ["S1", "S2", "S3"],
-    "WMA1": ["P1", "P2", "P3", "P4"],
+    "WMA": ["P1", "P2", "P3", "P4"],
     "WDM": ["D1"],
     "Chemistry": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"],
     "Physics": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"],
@@ -27,19 +27,20 @@ const units = {"New": {
     "WFM0": ["FP1", "FP2", "FP3"],
     "WME0": ["M1", "M2", "M3"],
     "WST0": ["S1", "S2", "S3"],
+    "WMA": ["C12", "C34"],
     "WDM": ["D1"],
-    "Chemistry": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
-    "Physics": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
-    "Biology": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
+    "Chemistry": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8"],
+    "Physics": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8"],
+    "Biology": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8"],
 },
 "Both": {
     "WFM0": ["FP1", "FP2", "FP3"],
     "WME0": ["M1", "M2", "M3"],
     "WST0": ["S1", "S2", "S3"],
     "WDM": ["D1"],
-    "Chemistry": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
-    "Physics": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
-    "Biology": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7"],
+    "Chemistry": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"],
+    "Physics": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"],
+    "Biology": ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6"],
 }}
 window.addEventListener('pageshow', (event) => {
     document.querySelector('.search-button').disabled = false;
@@ -86,10 +87,24 @@ function handleSubmit(){
     }
     else{
         document.querySelector('.search-button').disabled = true
+        const icon = document.querySelector('.search-icon')
+        icon.src = "../static/load.png"
+        if(!icon.classList.contains("animate-spin")){
+            icon.classList.add("animate-spin")
+        }
         window.location.href = `/results?subject=${Subject}&unit=${Unit}&search=${Search}&choice=${Spec.toLowerCase()}`
     }
 }
-document.addEventListener("DOMContentLoaded", () => {    
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    const icon = document.querySelector('.search-icon')
+    icon.src = "../static/icon.png"
+    if(icon.classList.contains("animate-spin")){
+        icon.classList.remove("animate-spin")
+    }
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {  
     const blob = document.getElementById("blob");
 
     window.onpointermove = event => { 

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Results</title>
+        <link rel="stylesheet" href="../static/results.css">
+        <link rel="icon" href="../static/icon.png">
+        <script src="../static/results.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
+        <script>
+            let domain = window.location.origin;
+            // console.log(domain);
+            function enlarge(link) {
+                window.open(`${domain}/${link}`, '_blank')
+            }
+            function back(){
+                history.back()
+            }
+        </script>
+    </head>
+    <body>
+        {% if results|length == 1 %}
+        <h1 class="hits">Found {{hits}} result</h1>
+        {% else %}
+        <h1 class="hits">Found {{hits}} results</h1>
+        {% endif %}
+        <div class="topButtons">
+            <a onclick="back()">
+                <div id="home" class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"  fill="#00c3ff">
+                        <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+                    </svg>
+                    <p>Home</p>
+                </div>
+            </a>
+            {% if results|length != 0 %}
+            <a onclick="selectAll()">
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00c3ff">
+                        <path d="M268-240 42-466l57-56 170 170 56 56-57 56Zm226 0L268-466l56-57 170 170 368-368 56 57-424 424Zm0-226-57-56 198-198 57 56-198 198Z"/>
+                    </svg>
+                    <p id="selectionChoice">Select All</p>
+                </div>
+            </a>
+            <a onclick="handleStorage()">
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00c3ff">
+                        <path d="M360-460h40v-80h40q17 0 28.5-11.5T480-580v-40q0-17-11.5-28.5T440-660h-80v200Zm40-120v-40h40v40h-40Zm120 120h80q17 0 28.5-11.5T640-500v-120q0-17-11.5-28.5T600-660h-80v200Zm40-40v-120h40v120h-40Zm120 40h40v-80h40v-40h-40v-40h40v-40h-80v200ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/>
+                    </svg>
+                    <p>Download Selected for Storage</p>
+                </div>
+            </a>
+            <a onclick="handlePrint()">
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00c3ff">
+                        <path d="M640-640v-120H320v120h-80v-200h480v200h-80Zm-480 80h640-640Zm560 100q17 0 28.5-11.5T760-500q0-17-11.5-28.5T720-540q-17 0-28.5 11.5T680-500q0 17 11.5 28.5T720-460Zm-80 260v-160H320v160h320Zm80 80H240v-160H80v-240q0-51 35-85.5t85-34.5h560q51 0 85.5 34.5T880-520v240H720v160Zm80-240v-160q0-17-11.5-28.5T760-560H200q-17 0-28.5 11.5T160-520v160h80v-80h480v80h80Z"/>
+                    </svg>
+                    <p>Download Selected for Print</p>
+                </div>
+            </a>
+            {% endif %}
+        </div>
+        <div class="images">
+            {% for result in results %} 
+                <div class="wrapper">
+                    <input class="checkbox" type="checkbox"
+                    {% if result[5] %}
+                    data-unit="{{result[5]}}"
+                    {% endif %}
+                    data-year="{{result[0]}}"
+                    data-page="{{result[1]}}"
+                    data-img-link="{{result[2]}}"
+                    data-qp-link="{{result[3]}}"
+                    data-ms-link="{{result[4]}}"/>
+                    <img src="{{result[2]}}" onclick="enlarge('{{result[2]}}')">
+                    <div class="info">
+                        <div class="details">
+                            <h1>
+                                {{result[0]}} 
+                            </h1>
+                            <h2>
+                                Page: {{result[1]}}
+                            </h2>
+                            {% if result[5] %}
+                            <h3>
+                                ({{result[5]}})
+                            </h3>
+                            {% endif %}
+                        </div>
+                        <a onclick="enlarge('{{result[2]}}')">
+                            <div class="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="#00c3ff">
+                                    <path d="M120-120v-230h60v127l148-148 43 43-148 148h127v60H120Zm490 0v-60h127L590-327l43-43 147 147v-127h60v230H610ZM327-590 180-737v127h-60v-230h230v60H223l147 147-43 43Zm306 0-43-43 147-147H610v-60h230v230h-60v-127L633-590Z"/>
+                                </svg>
+                                <p>Enlarge Image</p>
+                            </div>
+                        </a>
+                        <div class="imgButtons">
+                            <a href="{{result[3]}}#page={{result[1]}}">
+                                <div class="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="#00c3ff">
+                                        <path d="M120-240v-60h520v60H120Zm678-52L609-481l188-188 43 43-145 145 146 146-43 43ZM120-452v-60h400v60H120Zm0-208v-60h520v60H120Z"/>
+                                    </svg>
+                                    <p>Question Paper</p>
+                                </div>
+                            </a>
+                            <a href="{{result[4]}}">
+                                <div class="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px" fill="#00c3ff">
+                                        <path d="M222-214 80-356l42-42 100 99 179-179 42 43-221 221Zm0-320L80-676l42-42 100 99 179-179 42 43-221 221Zm298 244v-60h360v60H520Zm0-320v-60h360v60H520Z"/>
+                                    </svg>
+                                    <p>Mark Scheme</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

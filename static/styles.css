@@ -36,6 +36,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-inline: 15px;
 }
 .list{
     margin-top: 10vh;
@@ -88,6 +89,13 @@ input[name="subject"]:checked + label p {
     background-color: transparent;
     color: white;
 }
+.search-bar::placeholder{
+    color: white;
+    transition: all 200ms ease-in-out;
+}
+.search-bar:focus::placeholder{
+    color: rgb(162, 162, 162);
+}
 .search-button {
     background-color: transparent;
     border: none;
@@ -133,8 +141,7 @@ input[name="subject"]:checked + label p {
 input[name="unit"]:checked + label div {
     background-color: #0ec9ff;
     color: white;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-inline: 15px;
 }
 #blob {
     background-color: white;

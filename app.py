@@ -19,7 +19,7 @@ def ensure_directory(path):
     else:
         pass
 def clear():
-    shutil.rmtree(f"static/images/{user_id}")
+    shutil.rmtree(f"./static/images/{user_id}")
 
 
 app = Flask(__name__)
@@ -49,10 +49,22 @@ def results():
         subject = "Mathematics"
         unit = re.sub("Unit ", "", request.args.get("unit"))
         module = request.args.get("subject")
-        if module == "WDM" and choice=="new":
-            unit = "WDM11"
-        elif module == "WDM" and choice=="old":
-            unit = "WDM01"
+        if (module == "WDM" or module == "WMA") and choice=="new":
+            match module:
+                case "WDM":
+                    unit = "WDM11"
+                case "WMA":
+                    unit = f"WMA1{unit}"
+        elif (module == "WDM" or module == "WMA") and choice=="old":
+            match module:
+                case "WDM":
+                    unit = "WDM11"
+                case "WMA":
+                    if unit == "4":
+                        unit = "2"
+                    else:
+                        unit = "1"
+                    unit = f"WMA0{unit}"
         else:
             unit = f"{module}{unit}"
     else:
@@ -71,10 +83,10 @@ def results():
     total = 0
     old_count = 0
     new_count = 0
-    ensure_directory(f"static/images/{user_id}")
+    ensure_directory(f"./static/images/{user_id}")
     if folder:
         for one in folder:
-            ix = indexx.open_dir(f"static/Index/{one[1]}/{unit}")
+            ix = indexx.open_dir(f"./static/Index/{one[1]}/{unit}")
             qp = QueryParser("content", schema=ix.schema)
             query = qp.parse(target) 
             with ix.searcher() as searcher:
@@ -85,39 +97,25 @@ def results():
                         if response.status_code != 200:
                             continue
                         else:
-                            pdf = open(f"static/QP.pdf", "wb")
+                            pdf = open(f"./static/QP.pdf", "wb")
                             pdf.write(response.content)
                             page = result["page"]
-                            try:
-                                pdf = fitz.open(f"static/QP.pdf")
-                                # print(f"{result['year']} {result['qp_link']}#page={page}")
-                                Page = pdf.load_page(page)
-                                pix = Page.get_pixmap(dpi=160)
-                                ensure_directory(f'static/images/{user_id}/{one[0]}')
-                                pix.save(f'static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png')
-                                send.append([result["year"], page+1, f'static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"] ])
-                            except:
-                                webhook_url = ""
-
-                                data = {
-                                    "content": f'# Data Omitted \n > {result["year"]} {subject} {module} \n - Question Paper: {result["qp_link"]}#page={result["page"]} \n - Search Term: {target}'
-                                }
-
-                                response = requests.post(webhook_url, json=data)
-
-                                if response.status_code == 204:
-                                    print("Message sent successfully!")
-                                else:
-                                    print(f"Failed to send message: {response.status_code}")
-                                send.append([result["year"], page+1, f'static/404.png', result["qp_link"], result["ms_link"] ])
+                            pdf = fitz.open(f"./static/QP.pdf")
+                            # print(f"{result['year']} {result['qp_link']}#page={page}")
+                            Page = pdf.load_page(page)
+                            pix = Page.get_pixmap(dpi=160)
+                            ensure_directory(f'./static/images/{user_id}/{one[0]}')
+                            pix.save(f'./static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png')
+                            send.append([result["year"], page+1, f'./static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
+                            # send.append([result["year"], page+1, f'./static/404.png', result["qp_link"], result["ms_link"] ])
                     else:
                         page = result["page"]
                         pdf = fitz.open(f"{result['qp_link']}")
                         Page = pdf.load_page(page)
                         pix = Page.get_pixmap(dpi=160)
-                        ensure_directory(f'static/images/{user_id}/{one[0]}')
-                        pix.save(f'static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png')
-                        send.append([result["year"], page+1, f'static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"] ])
+                        ensure_directory(f'./static/images/{user_id}/{one[0]}')
+                        pix.save(f'./static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png')
+                        send.append([result["year"], page+1, f'./static/images/{user_id}/{one[0]}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
             total = total + len(results)
             if one[1] == old:
                 old_count = len(results)
@@ -127,9 +125,9 @@ def results():
         run_time = datetime.now() + timedelta(seconds=400)
         scheduler.add_job(clear, 'date', run_date=run_time)
         send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
-        return render_template("results.html", results = send, hits = hits)
+        return render_template("baseResults.html", results = send, hits = hits)
     else:
-        ix = indexx.open_dir(f"static/Index/{todo}/{unit}")
+        ix = indexx.open_dir(f"./static/Index/{todo}/{unit}")
         qp = QueryParser("content", schema=ix.schema)
         query = qp.parse(target) 
         with ix.searcher() as searcher:
@@ -140,45 +138,31 @@ def results():
                     if response.status_code != 200:
                         continue
                     else:
-                        pdf = open(f"static/QP.pdf", "wb")
+                        pdf = open(f"./static/QP.pdf", "wb")
                         pdf.write(response.content)
                         page = result["page"]
-                        try:
-                            pdf = fitz.open(f"static/QP.pdf")
-                            # print(f"{result['year']} {result['qp_link']}#page={page}")
-                            Page = pdf.load_page(page)
-                            pix = Page.get_pixmap(dpi=160)
-                            ensure_directory(f'static/images/{user_id}/{todo}')
-                            pix.save(f'static/images/{user_id}/{todo}/{result["year"]} pg{page}.png')
-                            send.append([result["year"], page+1, f'static/images/{user_id}/{todo}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"] ])
-                        except:
-                            webhook_url = ""
-
-                            data = {
-                                "content": f'# Data Omitted \n > {result["year"]} {subject} {module} \n - Question Paper: {result["qp_link"]}#page={result["page"]+1} \n - Search Term: {target}'
-                            }
-
-                            response = requests.post(webhook_url, json=data)
-
-                            if response.status_code == 204:
-                                print("Message sent successfully!")
-                            else:
-                                print(f"Failed to send message: {response.status_code}")
-                            send.append([result["year"], page+1, f'static/404.png', result["qp_link"], result["ms_link"] ])
+                        pdf = fitz.open(f"./static/QP.pdf")
+                        # print(f"{result['year']} {result['qp_link']}#page={page}")
+                        Page = pdf.load_page(page)
+                        pix = Page.get_pixmap(dpi=160)
+                        ensure_directory(f'./static/images/{user_id}/{todo}')
+                        pix.save(f'./static/images/{user_id}/{todo}/{result["year"]} pg{page}.png')
+                        send.append([result["year"], page+1, f'./static/images/{user_id}/{todo}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
+                        # send.append([result["year"], page+1, f'./static/404.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
                 else:
                     page = result["page"]
                     pdf = fitz.open(f"{result['qp_link']}")
                     Page = pdf.load_page(page)
                     pix = Page.get_pixmap(dpi=160)
-                    ensure_directory(f'static/images/{user_id}/{todo}')
-                    pix.save(f'static/images/{user_id}/{todo}/{result["year"]} pg{page}.png')
-                    send.append([result["year"], page+1, f'static/images/{user_id}/{todo}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"] ])
+                    ensure_directory(f'./static/images/{user_id}/{todo}')
+                    pix.save(f'./static/images/{user_id}/{todo}/{result["year"]} pg{page}.png')
+                    send.append([result["year"], page+1, f'./static/images/{user_id}/{todo}/{result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
         total = len(results)
         hits = total
         run_time = datetime.now() + timedelta(seconds=400)
         scheduler.add_job(clear, 'date', run_date=run_time)
         send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
-        return render_template("results.html", results = send, hits = hits)
+        return render_template("baseResults.html", results = send, hits = hits)
 @app.route("/SixMark", methods=["GET", "POST"])
 def SixMark():
     global user_id
@@ -208,8 +192,8 @@ def SixMarkresults():
     new_count = 0
     if folder:
         for one in folder:
-            for file in os.listdir(f"static/SixMark/Data/{one[1]}/{unit}"):
-                data = open(f"static/SixMark/Data/{one[1]}/{unit}/{file}", "r", encoding="utf-8")
+            for file in os.listdir(f"./static/SixMark/Data/{one[1]}/{unit}"):
+                data = open(f"./static/SixMark/Data/{one[1]}/{unit}/{file}", "r", encoding="utf-8")
                 data = json.load(data)
                 for row in data:
                     send.append([row["Title"], row["Page"], row["Image_Link"], row["QP_Link"], row["MS_Link"]])
@@ -219,17 +203,17 @@ def SixMarkresults():
                     else:
                         new_count = new_count + 1
         hits = f"{total} [Old: {old_count}, New: {new_count}]"                        
-        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
     else:
-        for file in os.listdir(f"static/SixMark/Data/{todo}/{unit}"):
-            data = open(f"static/SixMark/Data/{todo}/{unit}/{file}", "r", encoding="utf-8")
+        for file in os.listdir(f"./static/SixMark/Data/{todo}/{unit}"):
+            data = open(f"./static/SixMark/Data/{todo}/{unit}/{file}", "r", encoding="utf-8")
             data = json.load(data)
             for row in data:
                 send.append([row["Title"], row["Page"], row["Image_Link"], row["QP_Link"], row["MS_Link"]])
                 total = total + 1
         hits = total
-        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
-    return render_template("resultsSixMark.html", results = send, hits = hits)
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
+    return render_template("baseResults.html", results = send, hits = hits)
 @app.route("/SixMarkSearch", methods=["GET", "POST"])
 def SixMarkSearch():
     global user_id
@@ -260,7 +244,7 @@ def SixMarkSearchresults():
     new_count = 0
     if folder:
         for one in folder:
-            ix = indexx.open_dir(f"static/SixMark/Index/{one[1]}/{unit}")
+            ix = indexx.open_dir(f"./static/SixMark/Index/{one[1]}/{unit}")
             qp = QueryParser("content", schema=ix.schema)
             query = qp.parse(target) 
             with ix.searcher() as searcher:
@@ -273,20 +257,21 @@ def SixMarkSearchresults():
             else:
                 new_count = len(results)
         hits = f"{total} [Old: {old_count}, New: {new_count}]"
-        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
-        return render_template("resultsSixMarkSearch.html", results = send, hits = hits)
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
+        return render_template("baseResults.html", results = send, hits = hits)
     else:
-        ix = indexx.open_dir(f"static/SixMark/Index/{todo}/{unit}")
+        ix = indexx.open_dir(f"./static/SixMark/Index/{todo}/{unit}")
         qp = QueryParser("content", schema=ix.schema)
         query = qp.parse(target) 
         with ix.searcher() as searcher:
             results = searcher.search(query, limit=None)
+            print(results)
             for result in results:
                 send.append([result["year"], result["page"], result["image_link"], result["qp_link"], result["ms_link"]])
         total = len(results)
         hits = total
-        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(re.sub(r"^June 2013 ", "June 2013", x[0]), "%B %Y") if x[0].startswith("June 2013 ") else datetime.strptime("June 2014", "%B %Y") if x[0].startswith("1R June 2014") else datetime.strptime(x[0], "%B %Y"))
-        return render_template("resultsSixMarkSearch.html", results = send, hits = hits)
+        send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
+        return render_template("baseResults.html", results = send, hits = hits)
 @app.errorhandler(500)
 def internal_error(error):
     return render_template("error.html", error=str(traceback.format_exc())), 500
