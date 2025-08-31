@@ -18,9 +18,10 @@ def ensure_directory(path):
         os.makedirs(path)
     else:
         pass
-def clear():
-    shutil.rmtree(f"./static/images/{user_id}")
-
+def clear(user_id):
+    path = f"./static/images/{user_id}"
+    if os.path.exists(path):
+        shutil.rmtree(path)
 
 app = Flask(__name__)
 app.secret_key = 'edexcel_finder_anonymouslyanonymous'
@@ -123,7 +124,7 @@ def results():
                 new_count = len(results)
         hits = f"{total} [Old: {old_count}, New: {new_count}]"
         run_time = datetime.now() + timedelta(seconds=400)
-        scheduler.add_job(clear, 'date', run_date=run_time)
+        scheduler.add_job(clear, 'date', run_date=run_time, args=[user_id], misfire_grace_time=60)
         send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
         return render_template("baseResults.html", results = send, hits = hits)
     else:
@@ -160,7 +161,7 @@ def results():
         total = len(results)
         hits = total
         run_time = datetime.now() + timedelta(seconds=400)
-        scheduler.add_job(clear, 'date', run_date=run_time)
+        scheduler.add_job(clear, 'date', run_date=run_time, args=[user_id], misfire_grace_time=60)
         send.sort(key=lambda x: datetime.strptime("June 2019", "%B %Y") if x[0] == "Sample Assessment" else datetime.strptime(re.sub(r"^Unused ", "", x[0]), "%B %Y") if x[0].startswith("Unused ") else datetime.strptime(x[0], "%B %Y"))
         return render_template("baseResults.html", results = send, hits = hits)
 @app.route("/SixMark", methods=["GET", "POST"])
