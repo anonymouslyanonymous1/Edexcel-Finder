@@ -98,15 +98,17 @@ def results():
                         if response.status_code != 200:
                             continue
                         else:
-                            with open(f"./static/QP.pdf", "wb") as f:
+                            with open(f"./static/QP{user_id}.pdf", "wb") as f:
                                 f.write(response.content)
                             page = result["page"]
-                            pdf = fitz.open(f"./static/QP.pdf")
+                            pdf = fitz.open(f"./static/QP{user_id}.pdf")
                             # print(f"{result['year']} {result['qp_link']}#page={page}")
                             Page = pdf.load_page(page)
                             pix = Page.get_pixmap(dpi=160)
                             ensure_directory(f'./static/images/{user_id}/{one[0]}')
                             pix.save(f'./static/images/{user_id}/{one[0]}/{result["unit_code"]} {result["year"]} pg{page}.png')
+                            pdf.close()
+                            os.remove(f"./static/QP{user_id}.pdf")
                             send.append([result["year"], page+1, f'./static/images/{user_id}/{one[0]}/{result["unit_code"]} {result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
                             # send.append([result["year"], page+1, f'./static/404.png', result["qp_link"], result["ms_link"] ])
                     else:
@@ -116,6 +118,7 @@ def results():
                         pix = Page.get_pixmap(dpi=160)
                         ensure_directory(f'./static/images/{user_id}/{one[0]}')
                         pix.save(f'./static/images/{user_id}/{one[0]}/{result["unit_code"]} {result["year"]} pg{page}.png')
+                        pdf.close()
                         send.append([result["year"], page+1, f'./static/images/{user_id}/{one[0]}/{result["unit_code"]} {result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
             total = total + len(results)
             if one[1] == old:
@@ -139,15 +142,17 @@ def results():
                     if response.status_code != 200:
                         continue
                     else:
-                        with open(f"./static/QP.pdf", "wb") as f:
+                        with open(f"./static/QP{user_id}.pdf", "wb") as f:
                             f.write(response.content)
                         page = result["page"]
-                        pdf = fitz.open(f"./static/QP.pdf")
+                        pdf = fitz.open(f"./static/QP{user_id}.pdf")
                         # print(f"{result['year']} {result['qp_link']}#page={page}")
                         Page = pdf.load_page(page)
                         pix = Page.get_pixmap(dpi=160)
                         ensure_directory(f'./static/images/{user_id}/{todo}')
                         pix.save(f'./static/images/{user_id}/{todo}/{result["unit_code"]} {result["year"]} pg{page}.png')
+                        pdf.close()
+                        os.remove(f"./static/QP{user_id}.pdf")
                         send.append([result["year"], page+1, f'./static/images/{user_id}/{todo}/{result["unit_code"]} {result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
                         # send.append([result["year"], page+1, f'./static/404.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
                 else:
@@ -157,6 +162,7 @@ def results():
                     pix = Page.get_pixmap(dpi=160)
                     ensure_directory(f'./static/images/{user_id}/{todo}')
                     pix.save(f'./static/images/{user_id}/{todo}/{result["unit_code"]} {result["year"]} pg{page}.png')
+                    pdf.close()
                     send.append([result["year"], page+1, f'./static/images/{user_id}/{todo}/{result["unit_code"]} {result["year"]} pg{page}.png', result["qp_link"], result["ms_link"], result["unit_code"] ])
         total = len(results)
         hits = total
