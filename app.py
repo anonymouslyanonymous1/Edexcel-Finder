@@ -98,8 +98,8 @@ def results():
                         if response.status_code != 200:
                             continue
                         else:
-                            pdf = open(f"./static/QP.pdf", "wb")
-                            pdf.write(response.content)
+                            with open(f"./static/QP.pdf", "wb") as f:
+                                f.write(response.content)
                             page = result["page"]
                             pdf = fitz.open(f"./static/QP.pdf")
                             # print(f"{result['year']} {result['qp_link']}#page={page}")
@@ -139,8 +139,8 @@ def results():
                     if response.status_code != 200:
                         continue
                     else:
-                        pdf = open(f"./static/QP.pdf", "wb")
-                        pdf.write(response.content)
+                        with open(f"./static/QP.pdf", "wb") as f:
+                            f.write(response.content)
                         page = result["page"]
                         pdf = fitz.open(f"./static/QP.pdf")
                         # print(f"{result['year']} {result['qp_link']}#page={page}")
