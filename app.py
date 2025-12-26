@@ -95,7 +95,7 @@ def results():
                 for result in results:
                     if result["year"] != "Sample Assessment":
                         response = requests.get(result["qp_link"])
-                        if response.status_code != 200:
+                        if response.status_code != 200 or response.url == 'https://qualifications.pearson.com/en/campaigns/404.html':
                             continue
                         else:
                             with open(f"./static/QP{user_id}.pdf", "wb") as f:
@@ -139,7 +139,7 @@ def results():
             for result in results:
                 if result["year"] != "Sample Assessment":
                     response = requests.get(result["qp_link"])
-                    if response.status_code != 200:
+                    if response.status_code != 200 or response.url == 'https://qualifications.pearson.com/en/campaigns/404.html' or response.url == 'https://qualifications.pearson.com/en/campaigns/404.html':
                         continue
                     else:
                         with open(f"./static/QP{user_id}.pdf", "wb") as f:
