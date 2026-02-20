@@ -13,6 +13,16 @@ import time
 import uuid
 import json
 
+def safe_get(url, timeout=(20, 40)):
+    try:
+        return requests.get(
+            url,
+            timeout=timeout,
+            headers={"User-Agent": "Mozilla/5.0"}
+        )
+    except requests.exceptions.RequestException:
+        return None
+
 def ensure_directory(path):
     if not os.path.exists(path):
         os.makedirs(path)
@@ -94,8 +104,8 @@ def results():
                 results = searcher.search(query, limit=None)
                 for result in results:
                     if result["year"] != "Sample Assessment":
-                        response = requests.get(result["qp_link"])
-                        if response.status_code != 200 or response.url == 'https://qualifications.pearson.com/en/campaigns/404.html':
+                        response = safe_get(result["qp_link"])
+                        if not response or response.status_code != 200 or response.url == 'https://qualifications.pearson.com/en/campaigns/404.html':
                             continue
                         else:
                             with open(f"./static/QP{user_id}.pdf", "wb") as f:
@@ -138,8 +148,8 @@ def results():
             results = searcher.search(query, limit=None)
             for result in results:
                 if result["year"] != "Sample Assessment":
-                    response = requests.get(result["qp_link"])
-                    if response.status_code != 200 or response.url == 'https://qualifications.pearson.com/en/campaigns/404.html' or response.url == 'https://qualifications.pearson.com/en/campaigns/404.html':
+                    response = safe_get(result["qp_link"])
+                    if not response or response.status_code != 200 or response.url == 'https://qualifications.pearson.com/en/campaigns/404.html':
                         continue
                     else:
                         with open(f"./static/QP{user_id}.pdf", "wb") as f:
