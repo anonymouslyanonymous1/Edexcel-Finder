@@ -21,8 +21,8 @@ Inspired by [CAIE Finder](https://caiefinder.com/)
     - You can search for terms that are often alongside questions of a certain topic
     - Or search the topic itself, like to practice Capacitor Questions, searching `capacitor` should suffice
     
-> [!CAUTION]
-> If you are aware that a certain paper consists of a certain question you have searched up but it didn't show up. It's because either the paper is locked or Pearson has has removed it from their website.
+> [!WARNING]
+> If you are aware that a certain paper consists of a certain question you have searched up but it didn't show up. It's because either the paper is locked or Pearson has removed it from their website.
 
 ## Demonstration
 - Works **both** on mobile 📱 and desktop 🖥️
