@@ -111,7 +111,7 @@ async function WithLinks(pdfDoc, imgBytes, details, Coolvetica) {
                 Subtype: 'Link',
                 Rect: [QPX, rowY, QPX + QPTextWidth, rowY + textHeight],
                 Border: [0, 0, 0],
-                A: { Type: 'Action', S: 'URI', URI: PDFLib.PDFString.of(details.qp) }
+                A: { Type: 'Action', S: 'URI', URI: PDFLib.PDFString.of(`${details.qp}#page=${details.page}`) }
             })
         )
     );
